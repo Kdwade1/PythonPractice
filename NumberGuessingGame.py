@@ -1,24 +1,34 @@
 import random
 
 n = random.randrange(1, 101)
-tries = 0
+tries = 5
 playerName = input("What is your name ")
-print("Nice name " + playerName + ". Shall we begin")
-guess = int(input("Enter any number"))
+print("Eh I guess it was kinda pointless to learn your name. Alright " + playerName + "! Shall we begin.")
+guess = int(input("Enter any number between 1-100 "))
 # try:
-while tries < 5:
+while tries > 0:
+    if guess > 100:
+        print("You can't read can you.")
     if guess < n:
         print("Too low")
-        tries += 1
-        guess = int(input("Enter any number"))
+        tries -= 1
+        print("You have " + str(tries) + " tries left")
+        guess = int(input("Enter any number "))
+
     elif guess > n:
         print("Too high")
-        tries += 1
+        tries -= 1
+        print("You have " + str(tries) + " tries left")
+
         guess = int(input("Enter any number"))
+
     else:
-        print("Wow you got it!")
+        print('You guessed the number in ' + str(tries) + ' tries!')
         break
-if guess == tries:
-    print('You guessed the number in ' + str(tries) + ' tries!')
-else:
+
+if tries == 0:
     print('You did not guess the number, The number was ' + str(n))
+
+
+
+
