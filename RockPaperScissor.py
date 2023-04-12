@@ -28,4 +28,11 @@ def is_win(player, foe):
         return True
 
 
-print(play())
+def main():
+    print(play())
+    while input("Play Again? (Y/N) ").upper() == "Y":
+        print(play())
+
+
+if __name__ == "__main__":
+    main()
